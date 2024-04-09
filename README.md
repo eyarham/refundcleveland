@@ -30,23 +30,21 @@ Pre-Requisites:
 - PostgreSQL
 - Mailgun API Key (if you wish to send out emails while testing)
 
-#### Clone repo and install requirements
+#### Clone repo, create virtual environment, and install requirements
 
 ```sh
-git clone https://github.com/refundcleveland
+git clone https://github.com/eyarham/refundcleveland.git
 cd refundcleveland
+python -m venv .venv
+source .venv/Scripts/activate
 pip3 install -r requirements.txt
 ```
 
-#### Installing PostgreSQL & Creating a Database
+#### Start a PostgreSQL Container with Docker Compose
 
-If you need to install PostgreSQL, please follow these steps:
-
-1. Install PostgreSQL (https://www.enterprisedb.com/downloads/postgres-postgresql-downloads). Remember the password!
-1. (On Windows) Update your environment path variables. (Step 3 here: https://medium.com/@aeadedoyin/getting-started-with-postgresql-on-windows-201906131300-ee75f066df78)
-1. Open a command line and run `psql -U postgres`.  This is the default superuser.  Enter the password you created.
-1. Within the postgres terminal, enter the command `CREATE DATABASE <databaseName>;`.
-1. Update your local_settings.py file!
+1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+1. Open Docker Desktop
+1. From the repository directory, run `docker compose up -d`
 1. Run the command `python3 manage.py migrate` within the command line to create tables within your database.
 
 #### Add local settings
